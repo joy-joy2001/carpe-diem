@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block title %}Login{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link href="{{url_for('static', filename = 'css/login-reg-forms.css')}} " rel="stylesheet">
+{% endblock %}
+{% block variable_hero_section %}
+    <section class="variable-hero">
+        <form class="log-reg-form" id="login-form" action="">
+            <h2>Member Login</h2>
+            <input type="text" name="username" placeholder="username">
+            <input type="password" name="password" placeholder="password">
+            <input type="submit" name="login" id="" value="login">
+            <p>New User? <a href="#">Register</a></p>
+        </form>
+    </section>
+{% endblock %}

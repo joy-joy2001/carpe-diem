@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root{
+    --todo-col: rgba(160, 188, 194, 1);
+    --progress-col: rgba(255, 234, 181, 1);
+    --complete-col: rgba(218, 229, 208, 1);
+    --blue-fade: rgba(160, 188, 194, 0.36);
+    --cream-fade: rgba(254, 244, 220, 1);
+    --green-fade: rgba(218, 229, 208, 0.53);
+}
+
+button, input[type=submit] {
+    cursor: pointer;
+}
+
+#newtask-form {
+    display: none;
+    z-index: 3;
+    position: fixed;
+    width: 250px;
+    height: 250px;
+    left: 479px;
+    top: 200px;
+    background: #FEF4DC;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.form-header {
+    width: 100%;
+    height: 57px;
+    background: #FFEAB5;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.form-title {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    padding-top: 22px;
+    padding-left: 24px;
+    float: left;
+}
+
+#exitform-btn {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--cream-fade);
+    top: 10px;
+    right: 10px;
+    font-size: 10px;
+    box-shadow: 1px 2px 1px black;
+}
+
+#exitform-btn:hover {
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0.868);
+}
+
+.form-body {
+    margin: 20px;
+}
+
+.custom-fields {
+    background: #FFFFFF;
+    border-radius: 5px;
+    border: none;
+    resize: none;
+}
+
+textarea {
+    padding: 10px;
+    height: 50px;
+    width: 100%;
+}
+
+label {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.labelandfield {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+
+}
+
+select, input[type=date] {
+    height: 25px;
+    width: 110px;
+}
+
+input[type=date]{
+    text-align: center;
+}
+
+.horizontal-btns {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.form-btn {
+    background: rgb(255 234 181);
+    border-radius: 9px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    width: 150px;
+    height: 25px;
+}
+

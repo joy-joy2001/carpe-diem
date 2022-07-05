@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href=" {{url_for('static', filename = 'css/styles.css')}} " rel="stylesheet">
+    <link href=" {{url_for('static', filename = 'css/home.css')}} " rel="stylesheet">
+    <link href=" {{url_for('static', filename = 'css/main-nav.css')}} " rel="stylesheet">
+    <link href=" {{url_for('static', filename = 'css/kanban.css')}} " rel="stylesheet">
+    <link href=" {{url_for('static', filename = 'css/scrollbar.css')}} " rel="stylesheet">
+    <link href=" {{url_for('static', filename = 'css/popup-form.css')}} " rel="stylesheet">
+    <title>CARPE DIEM · KanBan</title>
+</head>
+<body>
+    <div class="popup-forms" id="newtask-form">
+        <form action="" class="">
+            <header class="form-header">
+                <h2 class="form-title">NEW TASK</h2>
+                <button id="exitform-btn" onclick="closeForm()">✖</button>
+            </header>
+            <section class="form-body">
+                <textarea class="custom-fields text-field" type="text" name="task-details" placeholder="Task"></textarea>
+                <section class="labelandfield">
+                    <label for="task-duedate">Due Date</label>
+                    <input class="custom-fields date-field" type="date" name="task-duedate" id="" placeholder="Due Date">                    
+                </section>
+                <section class="labelandfield">
+                    <label for="task-priority">Priority</label>
+                    <select class="custom-fields select-field"  name="task-priority" id="">
+                        <option value=""></option>
+                        <option value="high">🔴 - High</option>
+                        <option value="medium">🟠 - Medium</option>
+                        <option value="low">🟢 - Low</option>
+                    </select>
+                </section>
+                <section class="horizontal-btns">
+                    <!-- <input class="form-btn" type="submit" value="CANCEL">   -->
+                    <input class="form-btn" type="submit" value="ADD TO BOARD">
+                </section>
+              
+            </section>
+
+        </form>
+    </div>
+    <header id="main-header">
+        <div id="logo-header">
+            <a href="#"><img id="logo" src="{{ url_for('static', filename = 'img/infinity-logo.png') }}" alt="infinity-logo"></a>
+            <div id="username-display">
+                <p>CARPE DIEM</p>
+            </div>
+        </div>
+        <nav id="navbar">
+            <a href="#">logout</a>
+        </nav>
+    </header>
+    <main id="kanban-main">
+        <section id="side-board">
+            <header id="kb-board-header">
+                <h1><span>KANBAN</span><br><span>BOARD</span></h1>
+                <p>just do it.</p>
+            </header>
+            <section id="monthly-metric">
+                <section id="metric-header">
+                    <h1>JUN 2022</h1>
+                    <h2>TOTAL&nbsp;&nbsp;&nbsp;&nbsp;27</h2>
+                </section>
+                <section id="task-counts">
+                    <div class="task-metric">
+                        <div class="metric-bar" id="blue-bar"></div>
+                        <article id="todo-count" class="metric-value">
+                            <h1>10</h1>
+                            <p>To Do</p>
+                        </article>
+                    </div>
+                    <div class="task-metric">
+                        <div class="metric-bar" id="cream-bar"></div>
+                        <article id="progress-count" class="metric-value">
+                            <h1>5</h1>
+                            <p>In Progress</p>
+                        </article>
+                    </div>
+                    <div class="task-metric">
+                        <div class="metric-bar" id="green-bar"></div>
+                        <article id="complete-count" class="metric-value">
+                            <h1>12</h1>
+                            <p>Completed</p>
+                        </article>
+                    </div>
+                </section>
+            </section>
+        </section>
+
+        <section id="main-board">
+            <div id="todo-panel" class="kb-panel">
+                <header class="panel-header">
+                    <h2 class="panel-title">To Do 📌</h2>
+                    <button id="add-ticket-btn" onclick="openForm()">+</button>
+                </header>
+                <section class="ticket-list">
+                    <article id="kb01" class="todo-ticket ticket">
+                        <section class="ticket-status">
+                            <div class="due-date"><p>due 21/05</p></div>
+                            <div class="ticket-priority"></div>
+                        </section>
+                        <section class="ticket-task">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </section>
+                        <section class="ticket-details">
+                            <p>KANB-0021</p>
+                            <div class="ticket-btns">
+                                <a href="#">👈 </a>
+                                <a href="#">❌ </a>
+                                <a href="#">👉 </a>
+                            </div>
+                        </section>
+                    </article>
+                    <article id="kb01" class="todo-ticket ticket">
+                        <section class="ticket-status">
+                            <div class="due-date"><p>due 21/05</p></div>
+                            <div class="ticket-priority"></div>
+                        </section>
+                        <section class="ticket-task">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </section>
+                        <section class="ticket-details">
+                            <p>KANB-0021</p>
+                            <div class="ticket-btns">
+                                <a href="#">👈 </a>
+                                <a href="#">❌ </a>
+                                <a href="#">👉 </a>
+                            </div>
+                        </section>
+                    </article>
+                    <article id="kb01" class="todo-ticket ticket">
+                        <section class="ticket-status">
+                            <div class="due-date"><p>due 21/05</p></div>
+                            <div class="ticket-priority"></div>
+                        </section>
+                        <section class="ticket-task">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </section>
+                        <section class="ticket-details">
+                            <p>KANB-0021</p>
+                            <div class="ticket-btns">
+                                <a href="#">👈 </a>
+                                <a href="#">❌ </a>
+                                <a href="#">👉 </a>
+                            </div>
+                        </section>
+                    </article>
+                    <article id="kb01" class="todo-ticket ticket">
+                        <section class="ticket-status">
+                            <div class="due-date"><p>due 21/05</p></div>
+                            <div class="ticket-priority"></div>
+                        </section>
+                        <section class="ticket-task">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </section>
+                        <section class="ticket-details">
+                            <p>KANB-0021</p>
+                            <div class="ticket-btns">
+                                <a href="#">👈 </a>
+                                <a href="#">❌ </a>
+                                <a href="#">👉 </a>
+                            </div>
+                        </section>
+                    </article>
+                    <article id="kb01" class="todo-ticket ticket">
+                        <section class="ticket-status">
+                            <div class="due-date"><p>due 21/05</p></div>
+                            <div class="ticket-priority"></div>
+                        </section>
+                        <section class="ticket-task">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </section>
+                        <section class="ticket-details">
+                            <p>KANB-0021</p>
+                            <div class="ticket-btns">
+                                <a href="#">👈 </a>
+                                <a href="#">❌ </a>
+                                <a href="#">👉 </a>
+                            </div>
+                        </section>
+                    </article>                    
+                </section>
+
+            </div>
+            <div id="inprogress-panel" class="kb-panel">
+                <section class="panel-header">
+                    <h2 class="panel-title">In Progress 🔨</h2>
+                </section>
+                
+                <section class="ticket-list">
+                    <article id="kb01" class="inprogress-ticket ticket">
+                        <section class="ticket-status">
+                            <div class="due-date"><p>due 21/05</p></div>
+                            <div class="ticket-priority"></div>
+                        </section>
+                        <section class="ticket-task">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </section>
+                        <section class="ticket-details">
+                            <p>KANB-0021</p>
+                            <div class="ticket-btns">
+                                <a href="#">👈&nbsp;</a>
+                                <a href="#">&nbsp❌&nbsp</a>
+                                <a href="#">&nbsp👉 </a>
+                            </div>
+                        </section>
+                    </article>
+                    <article id="kb01" class="inprogress-ticket ticket">
+                        <section class="ticket-status">
+                            <div class="due-date"><p>due 21/05</p></div>
+                            <div class="ticket-priority"></div>
+                        </section>
+                        <section class="ticket-task">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </section>
+                        <section class="ticket-details">
+                            <p>KANB-0021</p>
+                            <div class="ticket-btns">
+                                <a href="#">👈 </a>
+                                <a href="#">❌ </a>
+                                <a href="#">👉 </a>
+                            </div>
+                        </section>
+                    </article>
+                    <article id="kb01" class="inprogress-ticket ticket">
+                        <section class="ticket-status">
+                            <div class="due-date"><p>due 21/05</p></div>
+                            <div class="ticket-priority"></div>
+                        </section>
+                        <section class="ticket-task">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </section>
+                        <section class="ticket-details">
+                            <p>KANB-0021</p>
+                            <div class="ticket-btns">
+                                <a href="#">👈 </a>
+                                <a href="#">❌ </a>
+                                <a href="#">👉 </a>
+                            </div>
+                        </section>
+                    </article>
+                    <article id="kb01" class="inprogress-ticket ticket">
+                        <section class="ticket-status">
+                            <div class="due-date"><p>due 21/05</p></div>
+                            <div class="ticket-priority"></div>
+                        </section>
+                        <section class="ticket-task">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </section>
+                        <section class="ticket-details">
+                            <p>KANB-0021</p>
+                            <div class="ticket-btns">
+                                <a href="#">👈 </a>
+                                <a href="#">❌ </a>
+                                <a href="#">👉 </a>
+                            </div>
+                        </section>
+                    </article>
+                    <article id="kb01" class="inprogress-ticket ticket">
+                        <section class="ticket-status">
+                            <div class="due-date"><p>due 21/05</p></div>
+                            <div class="ticket-priority"></div>
+                        </section>
+                        <section class="ticket-task">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </section>
+                        <section class="ticket-details">
+                            <p>KANB-0021</p>
+                            <div class="ticket-btns">
+                                <a href="#">👈 </a>
+                                <a href="#">❌ </a>
+                                <a href="#">👉 </a>
+                            </div>
+                        </section>
+                    </article>                    
+                </section>
+                </article>
+            </div>
+            <div id="complete-panel" class="kb-panel">
+                <section class="panel-header">
+                    <h2 class="panel-title">Completed ✅</h2>
+                </section>
+                
+                <section class="ticket-list">
+                    <article id="kb01" class="complete-ticket ticket">
+                        <section class="ticket-status">
+                            <div class="due-date"><p>due 21/05</p></div>
+                            <div class="ticket-priority"></div>
+                        </section>
+                        <section class="ticket-task">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </section>
+                        <section class="ticket-details">
+                            <p>KANB-0021</p>
+                            <div class="ticket-btns">
+                                <a href="#">👈 </a>
+                                <a href="#">❌ </a>
+                                <a href="#">👉 </a>
+                            </div>
+                        </section>
+                    </article>
+                    <article id="kb01" class="complete-ticket ticket">
+                        <section class="ticket-status">
+                            <div class="due-date"><p>due 21/05</p></div>
+                            <div class="ticket-priority"></div>
+                        </section>
+                        <section class="ticket-task">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </section>
+                        <section class="ticket-details">
+                            <p>KANB-0021</p>
+                            <div class="ticket-btns">
+                                <a href="#">👈 </a>
+                                <a href="#">❌ </a>
+                                <a href="#">👉 </a>
+                            </div>
+                        </section>
+                    </article>
+                    <article id="kb01" class="complete-ticket ticket">
+                        <section class="ticket-status">
+                            <div class="due-date"><p>due 21/05</p></div>
+                            <div class="ticket-priority"></div>
+                        </section>
+                        <section class="ticket-task">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </section>
+                        <section class="ticket-details">
+                            <p>KANB-0021</p>
+                            <div class="ticket-btns">
+                                <a href="#">👈 </a>
+                                <a href="#">❌ </a>
+                                <a href="#">👉 </a>
+                            </div>
+                        </section>
+                    </article>
+                    <article id="kb01" class="complete-ticket ticket">
+                        <section class="ticket-status">
+                            <div class="due-date"><p>due 21/05</p></div>
+                            <div class="ticket-priority"></div>
+                        </section>
+                        <section class="ticket-task">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </section>
+                        <section class="ticket-details">
+                            <p>KANB-0021</p>
+                            <div class="ticket-btns">
+                                <a href="#">👈 </a>
+                                <a href="#">❌ </a>
+                                <a href="#">👉 </a>
+                            </div>
+                        </section>
+                    </article>
+                    <article id="kb01" class="complete-ticket ticket">
+                        <section class="ticket-status">
+                            <div class="due-date"><p>due 21/05</p></div>
+                            <div class="ticket-priority"></div>
+                        </section>
+                        <section class="ticket-task">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </section>
+                        <section class="ticket-details">
+                            <p>KANB-0021</p>
+                            <div class="ticket-btns">
+                                <a href="#">👈 </a>
+                                <a href="#">❌ </a>
+                                <a href="#">👉 </a>
+                            </div>
+                        </section>
+                    </article>
+                </section>
+            </div>
+        </section>
+    </main>
+    <script src="./js/popup.js"></script>
+</body>
+</html>

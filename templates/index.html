@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARPE · {% block title %}Home{% endblock %}</title>
+    {% block head %}
+    <!--  use the super function to avoid overriding the previous stylesheets and to allow other stylesheets to be added  -->
+    <link href=" {{url_for('static', filename = 'css/styles.css')}} " rel="stylesheet">
+    <link href=" {{url_for('static', filename = 'css/home.css')}} " rel="stylesheet">
+    <link href=" {{url_for('static', filename = 'css/main-nav.css')}} " rel="stylesheet">
+    {% endblock %}
+</head>
+<body>
+<!-- Consistent block for home, login and sign-up (also for kanban tbh)-->
+    <header id="main-header">
+        <div id="logo-header">
+            <a href="#"><img id="logo" src="{{ url_for('static', filename = 'img/infinity-logo.png') }}" alt="infinity-logo"></a>
+            <div id="username-display">
+                <p>CARPE DIEM</p>
+            </div>
+        </div>
+        <nav id="navbar">
+            <a href="{{ url_for('home') }}">home</a>
+        </nav>
+    </header>
+
+    <main id="home-main">
+        <!-- Consistent block for home, login and signup-->
+        <section id="carpediem-hero">
+            <h1>CARPE<br>DIEM</h1>
+            <h3>seize today, it won't come again</h3>
+
+            <div class="carpehome-btns">
+                <button id="login-btn" class="home-btn">LOGIN</button>
+                <button id="register-btn" class="home-btn">REGISTER</button>
+            </div>
+        </section>
+        <!-- Consistent block for home, login and signup-->
+
+        <!-- variable for home, login and signup -->
+        {% block variable_hero_section %}
+        <section id="about-hero" class="variable-hero">
+            <img id="crop-image" src="{{ url_for('static', filename = 'img/flying-birds.gif') }}" alt="black-flying-birds-gif">
+            <h3>ABOUT</h3>
+            <p>Manage time and workflows with this open source management tool inspired by the popular kanban framework</p>
+        </section>
+        {% endblock %}
+        <!-- variable for home, login and signup -->
+    </main>
+</body>
+
+</html>
