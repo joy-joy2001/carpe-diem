@@ -73,9 +73,20 @@
     border: none;
     background: none;
     cursor: pointer;
+    color: black;
+}
+
+a {
+    text-decoration: none;
 }
 
 #login-btn {
     background: black;
     color: white;
 }
+
+#signout-btn {
+    background: black;
+    color: white;
+}
+

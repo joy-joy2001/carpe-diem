@@ -6,12 +6,27 @@
 {% endblock %}
 {% block variable_hero_section %}
     <section class="variable-hero">
-        <form class="log-reg-form" id="login-form" action="">
+        <form class="log-reg-form" id="login-form" action="" method="post" novalidate>
             <h2>Member Login</h2>
-            <input type="text" name="username" placeholder="username">
-            <input type="password" name="password" placeholder="password">
-            <input type="submit" name="login" id="" value="login">
-            <p>New User? <a href="#">Register</a></p>
+                {{ login_form.csrf_token }}
+                <div class="field-container">
+                    {{ login_form.username.label }}
+                    {{ login_form.username }}
+                    {% if username_error %}
+                        <span style="color:red; font-size:.8em; font-weight:bold">{{ username_error }}</span>
+                    {% endif %}
+                </div>
+                <div class="field-container">
+                    {{ login_form.password.label }}
+                    {{ login_form.password }}
+                    {% if password_error %}
+                        <span style="color:red; font-size:.8em; font-weight:bold">{{ password_error }}</span>
+                    {% endif %}
+                </div>
+                <div class="field-container">
+                    {{ login_form.login_btn }}
+                </div>
+            <p>New User? <a href="{{ url_for('register') }}">Register</a></p>
         </form>
     </section>
 {% endblock %}
