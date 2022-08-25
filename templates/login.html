@@ -5,7 +5,7 @@
     <link href="{{url_for('static', filename = 'css/login-reg-forms.css')}} " rel="stylesheet">
 {% endblock %}
 {% block variable_hero_section %}
-    <section class="variable-hero">
+    <section class="variable-hero form-hero">
         <form class="log-reg-form" id="login-form" action="" method="post" novalidate>
             <h2>Member Login</h2>
                 {{ login_form.csrf_token }}
@@ -22,6 +22,9 @@
                     {% if password_error %}
                         <span style="color:red; font-size:.8em; font-weight:bold">{{ password_error }}</span>
                     {% endif %}
+                </div>
+                <div class="recaptcha-box">
+                    {{ login_form.recaptcha  }}
                 </div>
                 <div class="field-container">
                     {{ login_form.login_btn }}
