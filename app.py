@@ -60,7 +60,8 @@ def login():
     return render_template("login.html",
                            login_form=login_form,
                            username_error=username_error,
-                           password_error=password_error,)
+                           password_error=password_error,
+                           current_user=current_user)
 
 
 @app.route("/register", methods=['GET', 'POST'])
