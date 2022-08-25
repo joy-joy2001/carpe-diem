@@ -25,7 +25,7 @@ app.config['RECAPTCHA_PRIVATE_KEY'] = os.environ.get('RECAPTCHA_SECRET_KEY')
 app.config['RECAPTCHA_OPTIONS'] = {'theme': 'black'}
 
 
-@app.route("/carpe-diem")
+@app.route("/")
 def home():
         return render_template("index.html")
 
