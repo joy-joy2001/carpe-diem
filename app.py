@@ -27,7 +27,7 @@ app.config['RECAPTCHA_OPTIONS'] = {'theme': 'black'}
 
 @app.route("/")
 def home():
-        return render_template("index.html")
+        return render_template("index.html", current_user=current_user)
 
 
 @app.route("/kanban-board/<username>", methods=['GET', 'POST'])
