@@ -20,6 +20,9 @@ app.secret_key = os.environ.get('APP_SECRET_KEY')
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['RECAPTCHA_PUBLIC_KEY'] = os.environ.get('RECAPTCHA_SITE_KEY')
+app.config['RECAPTCHA_PRIVATE_KEY'] = os.environ.get('RECAPTCHA_SECRET_KEY')
+app.config['RECAPTCHA_OPTIONS'] = {'theme': 'black'}
 
 
 @app.route("/carpe-diem")

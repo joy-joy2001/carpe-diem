@@ -29,7 +29,6 @@
 }
 
 
-
 .variable-hero, #carpediem-hero{
     width: fit-content;
     display: flex;
@@ -40,6 +39,10 @@
 .variable-hero {
     margin-left: 5%;
     width: 70%;
+}
+
+.form-hero {
+    height: 65%;
 }
 
 #about-hero h3 {

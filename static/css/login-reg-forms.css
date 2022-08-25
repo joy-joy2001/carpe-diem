@@ -66,3 +66,7 @@ label {
 .has_error {
     border: 1px solid red;
 }
+
+.recaptcha-box {
+    margin-bottom: 1.2em
+}
