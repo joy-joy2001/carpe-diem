@@ -13,6 +13,12 @@ login_manager = LoginManager()
 
 @login_manager.user_loader
 def load_user(user_id):
+    try:
+        user = User.query.get(user_id)
+        return user
+    except KeyError:
+        return None
+        
     return User.query.get(user_id)
 
 
