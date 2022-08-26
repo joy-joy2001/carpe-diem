@@ -33,6 +33,9 @@ db.init_app(app)
 
 from UsersHandler import Board, User
 
+db.create_all()
+db.session.commit()
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
@@ -122,6 +125,5 @@ def unauthorised(e):
 
 
 if __name__ == '__main__':
-    db.create_all()
     app.run(debug=True)
 
