@@ -81,7 +81,7 @@ def register():
     if register_form.validate_on_submit():
         register_user()
         return redirect(url_for('home'))
-    return render_template("signup.html", register_form=register_form, current_user=current_user)
+    return render_template("signup.html", register_form=register_form)
 
 
 @app.route("/promote", methods=["GET", "POST"])
