@@ -19,6 +19,7 @@ app = Flask(__name__)
 app.secret_key = os.environ.get('APP_SECRET_KEY')
 login_manager = LoginManager()
 login_manager.init_app(app)
+db.init_app(app)
 #Added this line fixed the issue.
 login_manager.login_view = 'users.login'
 
@@ -31,7 +32,7 @@ app.config['RECAPTCHA_OPTIONS'] = {'theme': 'black'}
 
 from UsersHandler import Board, User
 
-db.init_app(app)
+
 
 # db.session.commit()
 
