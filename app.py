@@ -29,7 +29,9 @@ app.config['RECAPTCHA_PUBLIC_KEY'] = os.environ.get('RECAPTCHA_SITE_KEY')
 app.config['RECAPTCHA_PRIVATE_KEY'] = os.environ.get('RECAPTCHA_SECRET_KEY')
 app.config['RECAPTCHA_OPTIONS'] = {'theme': 'black'}
 
+from UsersHandler import Board, User
 
+db.init_app(app)
 
 # db.session.commit()
 
@@ -122,10 +124,6 @@ def unauthorised(e):
 
 
 if __name__ == '__main__':
-    db.init_app(app)
-    from UsersHandler import Board, User
-    
     db.create_all()
-    
     app.run(debug=True)
 
