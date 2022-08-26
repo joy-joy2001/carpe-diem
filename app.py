@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 
 from flask import Flask, render_template, request, redirect, url_for
-from flask_login import login_required, logout_user, login_user, current_user
+from flask_login import login_required, logout_user, login_user, current_user, LoginManager
 from werkzeug.exceptions import HTTPException
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug import exceptions
@@ -17,12 +17,22 @@ from UsersHandler import register_user, login_manager
 load_dotenv()
 app = Flask(__name__)
 app.secret_key = os.environ.get('APP_SECRET_KEY')
+login_manager = LoginManager()
+login_manager.init_app(app)
+#Added this line fixed the issue.
+login_manager.login_view = 'users.login'
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL1')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['RECAPTCHA_PUBLIC_KEY'] = os.environ.get('RECAPTCHA_SITE_KEY')
 app.config['RECAPTCHA_PRIVATE_KEY'] = os.environ.get('RECAPTCHA_SECRET_KEY')
 app.config['RECAPTCHA_OPTIONS'] = {'theme': 'black'}
+
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)
 
 
 @app.route("/")
@@ -111,9 +121,5 @@ def unauthorised(e):
 if __name__ == '__main__':
     db.init_app(app)
 #     db.create_all()
-    login_manager = LoginManager()
-    login_manager.init_app(app)
- #Added this line fixed the issue.
-    login_manager.login_view = 'users.login'
     app.run(debug=True)
 
