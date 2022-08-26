@@ -122,8 +122,9 @@ def unauthorised(e):
 
 
 if __name__ == '__main__':
-    from UsersHandler import Board, User
     db.init_app(app)
+    from UsersHandler import Board, User
+    
     db.create_all()
     
     app.run(debug=True)
