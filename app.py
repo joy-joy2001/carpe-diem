@@ -36,7 +36,7 @@ db = SQLAlchemy(app)
 
 from UsersHandler import Board, User
 
-db.init_app(app)
+# db.init_app(app)
 
 # db.session.commit()
 
