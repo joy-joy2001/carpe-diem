@@ -9,7 +9,7 @@ from werkzeug import exceptions
 
 from TaskHandler import create_task, create_board, promote_task, demote_task, delete_task, kanban_stats
 from FormHandler import LoginForm, RegisterForm
-from BoardHandler import db, User
+from BoardHandler import db
 from UsersHandler import register_user, login_manager
 
 
@@ -30,6 +30,8 @@ app.config['RECAPTCHA_PRIVATE_KEY'] = os.environ.get('RECAPTCHA_SECRET_KEY')
 app.config['RECAPTCHA_OPTIONS'] = {'theme': 'black'}
 
 db.init_app(app)
+
+from UsersHandler import Board, User
 
 @login_manager.user_loader
 def load_user(user_id):
