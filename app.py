@@ -24,16 +24,19 @@ login_manager.init_app(app)
 #Added this line fixed the issue.
 login_manager.login_view = 'users.login'
 
-db.init_app(app)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL1')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['RECAPTCHA_PUBLIC_KEY'] = os.environ.get('RECAPTCHA_SITE_KEY')
 app.config['RECAPTCHA_PRIVATE_KEY'] = os.environ.get('RECAPTCHA_SECRET_KEY')
 app.config['RECAPTCHA_OPTIONS'] = {'theme': 'black'}
 
+db = SQLAlchemy(app)
+
+
 from UsersHandler import Board, User
 
-db.create_all()
+db.init_app(app)
 
 # db.session.commit()
 
@@ -127,6 +130,6 @@ def unauthorised(e):
 
 if __name__ == '__main__':
 
-#     db.create_all()
+    db.create_all()
     app.run(debug=True)
 
