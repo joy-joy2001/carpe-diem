@@ -61,7 +61,7 @@ def login():
                            login_form=login_form,
                            username_error=username_error,
                            password_error=password_error,
-                           )
+                           current_user=current_user)
 
 
 @app.route("/register", methods=['GET', 'POST'])
@@ -70,7 +70,7 @@ def register():
     if register_form.validate_on_submit():
         register_user()
         return redirect(url_for('home'))
-    return render_template("signup.html", register_form=register_form)
+    return render_template("signup.html", register_form=register_form, current_user=current_user)
 
 
 @app.route("/promote", methods=["GET", "POST"])
