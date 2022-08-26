@@ -19,7 +19,7 @@ app = Flask(__name__)
 app.secret_key = os.environ.get('APP_SECRET_KEY')
 login_manager = LoginManager()
 login_manager.init_app(app)
-db.init_app(app)
+
 #Added this line fixed the issue.
 login_manager.login_view = 'users.login'
 
@@ -125,6 +125,7 @@ def unauthorised(e):
 
 
 if __name__ == '__main__':
+    db.init_app(app)
     db.create_all()
     app.run(debug=True)
 
