@@ -22,7 +22,6 @@ login_manager.init_app(app)
 #Added this line fixed the issue.
 login_manager.login_view = 'users.login'
 
-db.init_app(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL1')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -30,7 +29,7 @@ app.config['RECAPTCHA_PUBLIC_KEY'] = os.environ.get('RECAPTCHA_SITE_KEY')
 app.config['RECAPTCHA_PRIVATE_KEY'] = os.environ.get('RECAPTCHA_SECRET_KEY')
 app.config['RECAPTCHA_OPTIONS'] = {'theme': 'black'}
 
-
+db.init_app(app)
 
 @login_manager.user_loader
 def load_user(user_id):
