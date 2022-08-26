@@ -45,7 +45,7 @@
 
             <div class="carpehome-btns">
                 {% if not current_user.is_authenticated %}
-                    <a id="login-btn" class="home-btn" href="{{ url_for('login', current_user=current_user) }}">LOGIN</a>
+                    <a id="login-btn" class="home-btn" href="{{ url_for('login') }}">LOGIN</a>
                     <a id="register-btn" class="home-btn" href="{{ url_for('register') }}">REGISTER</a>
                 {% else %}
                     <a id="signout-btn" class="home-btn" href="{{ url_for('logout') }}">LOGOUT</a>
