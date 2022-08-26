@@ -33,7 +33,7 @@ app.config['RECAPTCHA_OPTIONS'] = {'theme': 'black'}
 
 from UsersHandler import Board, User
 
-
+db.create_all()
 
 # db.session.commit()
 
@@ -127,6 +127,6 @@ def unauthorised(e):
 
 if __name__ == '__main__':
 
-    db.create_all()
+#     db.create_all()
     app.run(debug=True)
 
