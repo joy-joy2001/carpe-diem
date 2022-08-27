@@ -24,7 +24,7 @@ login_manager = LoginManager()
 
 def create_user_table(name):
     app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Boards.db'
+    app.config['SQLALCHEMY_DATABASE_URI1'] = os.environ.get('DATABASE_URL1')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db = SQLAlchemy(app)
 
