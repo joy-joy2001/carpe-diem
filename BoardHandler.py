@@ -3,10 +3,10 @@ from flask_sqlalchemy import SQLAlchemy, inspect, declarative_base
 
 from flask_login import UserMixin
 
-db = SQLAlchemy()
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL1')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# db = SQLAlchemy()
+# app = Flask(__name__)
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL1')
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 class Board(db.Model):
     __abstract__ = True
@@ -25,6 +25,6 @@ class User(db.Model, UserMixin):
     date_created = db.Column(db.String(50), nullable=False)
     table_id = db.Column(db.String(80), nullable=False)
 
-with app.app_context():
-    db.create_all()
+# with app.app_context():
+#     db.create_all()
 
