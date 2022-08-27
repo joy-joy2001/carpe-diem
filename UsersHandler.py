@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from uuid import uuid5, NAMESPACE_DNS
 import datetime as dt
 from BoardHandler import db, User, Board
+import os
 
 
 date = dt.date
