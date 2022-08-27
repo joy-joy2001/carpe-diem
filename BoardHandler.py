@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy, inspect, declarative_base
 
 from flask_login import UserMixin
 
-# db = SQLAlchemy()
+db = SQLAlchemy()
 # app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL1')
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
