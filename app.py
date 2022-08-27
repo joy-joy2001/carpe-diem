@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 
 from flask import Flask, render_template, request, redirect, url_for
-from flask_login import login_required, logout_user, login_user, current_user, LoginManager
+from flask_login import login_required, logout_user, login_user, current_user, LoginManager, UserMixin
 from werkzeug.exceptions import HTTPException
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug import exceptions
@@ -13,9 +13,15 @@ from BoardHandler import db
 from UsersHandler import register_user, login_manager
 
 
+
+from flask_sqlalchemy import SQLAlchemy, inspect, declarative_base
+
 ############################################### APP CONFIGURATION ######################################################
 load_dotenv()
+
+
 app = Flask(__name__)
+
 
 app.secret_key = os.environ.get('APP_SECRET_KEY')
 login_manager = LoginManager()
@@ -23,7 +29,7 @@ login_manager.init_app(app)
 
 #Added this line fixed the issue.
 login_manager.login_view = 'users.login'
-
+db = SQLAlchemy(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL1')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -34,10 +40,27 @@ app.config['RECAPTCHA_OPTIONS'] = {'theme': 'black'}
 # db = SQLAlchemy(app)
 
 
-from UsersHandler import Board, User
 
-db.init_app(app)
-# db.create_all()
+class Board(db.Model):
+    __abstract__ = True
+    id = db.Column(db.String, primary_key=True)
+    type = db.Column(db.String(80), nullable=False)
+    desc = db.Column(db.String(500), nullable=False)
+    priority = db.Column(db.String(50), nullable=False)
+    due_date = db.Column(db.String(50), nullable=False)
+    created_date = db.Column(db.String(50), nullable=False)
+
+
+class User(db.Model, UserMixin):
+    __tablename__ = 'user'
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), nullable=False)
+    password = db.Column(db.String(80), nullable=False)
+    date_created = db.Column(db.String(50), nullable=False)
+    table_id = db.Column(db.String(80), nullable=False)
+
+# db.init_app(app)
+db.create_all()
 # db.session.commit()
 
 @login_manager.user_loader
@@ -131,5 +154,5 @@ def unauthorised(e):
 if __name__ == '__main__':
 #     db.create_all()
     app.run(debug=True)
-    db.create_all()
+#     db.create_all()
 
