@@ -50,7 +50,7 @@ def register_user():
 
     new_user = User(
         username=request.form.get('username'),
-        password=hashed_password,
+        password=request.form.get('password'),
         date_created=current_date(),
         table_id=str(uuid5(NAMESPACE_DNS, request.form.get('username')))
     )
