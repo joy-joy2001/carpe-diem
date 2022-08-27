@@ -26,7 +26,7 @@ def create_user_table(name):
     app = Flask(__name__)
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Boards.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    db.init_app(app)
+    db.SQLAlchemy(app)
 
     # user_board = type(name, (Board, db.Model), {'__tablename__': name})
     class UserBoard(Board, db.Model):
