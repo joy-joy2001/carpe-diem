@@ -1,7 +1,7 @@
 from flask import Flask, request
 from werkzeug.security import generate_password_hash
 from flask_login import LoginManager, login_user, current_user
-
+from flask_sqlalchemy import SQLAlchemy
 from uuid import uuid5, NAMESPACE_DNS
 import datetime as dt
 from BoardHandler import db, User, Board
