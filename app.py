@@ -60,7 +60,7 @@ class User(db.Model, UserMixin):
     table_id = db.Column(db.String(80), nullable=False)
 
 # db.init_app(app)
-db.create_all()
+# db.create_all()
 # db.session.commit()
 
 @login_manager.user_loader
