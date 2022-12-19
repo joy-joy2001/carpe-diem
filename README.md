@@ -1,6 +1,7 @@
 # carpe-diem
 A Kanban Board made with a Flask back-end and fornt-end vanilla HTML + CSS
 
+![App demo gif](carpediem-appdemo.gif)
 
 
 ## why though?
